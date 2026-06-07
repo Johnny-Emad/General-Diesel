@@ -41,6 +41,7 @@
     
     --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-arabic: 'Tajawal', 'Noto Serif', sans-serif;
     --font-mono: 'DM Mono', monospace;
     
     --font-size-xs: 12px;
@@ -198,7 +199,7 @@ a:focus-visible {
 
 .navbar__logo{
     text-align: center;
-    margin-right: auto;
+    margin-inline-end: auto;
     /* align-items: center; */
 }
 
@@ -561,6 +562,41 @@ a:focus-visible {
 
 .navbar__menu.active {
     display: flex;
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.language-switcher {
+    min-width: 120px;
+    padding: 0.65rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-light);
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.language-switcher:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .navbar__toggle {
@@ -1148,6 +1184,97 @@ a:focus-visible {
     color: var(--brand-secondary);
 }
 
+.footer__contact {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.footer__contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.footer__contact-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] {
+    direction: rtl;
+}
+
+html[dir="rtl"] body {
+    text-align: right;
+    font-family: var(--font-arabic), var(--font-body);
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6 {
+    letter-spacing: normal;
+}
+
+html[dir="rtl"] .navbar__content {
+    direction: rtl;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+html[dir="rtl"] .navbar__logo {
+    text-align: right;
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+}
+
+html[dir="rtl"] .navbar__actions {
+    text-align: right;
+}
+
+html[dir="rtl"] .language-switcher {
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar__menu {
+    direction: rtl;
+}
+
+html[dir="rtl"] .about__text,
+html[dir="rtl"] .founder-card__content,
+html[dir="rtl"] .process__step,
+html[dir="rtl"] .testimonial-card,
+html[dir="rtl"] .footer__section,
+html[dir="rtl"] .footer__bottom-content {
+    text-align: right;
+}
+
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .feature-card,
+html[dir="rtl"] .cta-final {
+    text-align: center;
+}
+
+html[dir="rtl"] .highlight-card:hover {
+    transform: translateX(-6px);
+}
+
+html[dir="rtl"] .hero__cta {
+    justify-content: center;
+}
+
+html[dir="rtl"] .about__text {
+    order: 2;
+}
+
+html[dir="rtl"] .about__founder {
+    order: 1;
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
@@ -1187,6 +1314,12 @@ a:focus-visible {
         box-shadow: var(--shadow-md);
         z-index: 999;
         transition: var(--transition-theme);
+    }
+
+    html[dir="rtl"] .navbar__menu {
+        left: auto;
+        right: 0;
+        text-align: right;
     }
 
     .navbar__menu.active {

@@ -30,6 +30,13 @@
     </noscript>
     <link rel="preload" as="image" href="img/Hero%20BG.jpg">
     <link rel="preload" as="image" href="logo of our company.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap">
+    </noscript>
     <style>
         :root { color-scheme: dark; }
         *, *::before, *::after { box-sizing: border-box; }
@@ -64,13 +71,20 @@
                     </a>
                 </div>    
                 <ul class="navbar__menu">
-                    <li><a href="#partners">Partners</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="cta-link">Contact Us</a></li>
-                </ul>    
+                    <li><a href="#partners" data-i18n="nav.partners">Partners</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                    <li><a href="#process" data-i18n="nav.process">Process</a></li>
+                    <li><a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a></li>
+                    <li><a href="#contact" class="cta-link" data-i18n="nav.contactUs">Contact Us</a></li>
+                </ul>
+                <div class="navbar__actions">
+                    <label for="languageSwitcher" class="sr-only" data-i18n="nav.languageLabel">Language</label>
+                    <select id="languageSwitcher" class="language-switcher" aria-label="Select language">
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
                 <button class="navbar__toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -87,11 +101,11 @@
         <div class="hero__content">
             <div class="container">
                 <div class="hero__text">
-                    <h1 class="hero__title">The Right Part, Every Time</h1>
-                    <p class="hero__subtitle">Importers and distributors of genuine<span> diesel injection pump </span>spare parts <br/> Bosch, Delphi, Denso, Zexel, and more</p>
+                    <h1 class="hero__title" data-i18n="hero.title">The Right Part, Every Time</h1>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle" data-i18n-html="true">Importers and distributors of genuine<span> diesel injection pump </span>spare parts <br/> Bosch, Delphi, Denso, Zexel, and more</p>
                     <div class="hero__cta">
-                        <a href="#contact" class="btn btn--primary">Request a Part</a>
-                        <a href="#about" class="btn btn--secondary">Learn More</a>
+                        <a href="#contact" class="btn btn--primary" data-i18n="hero.cta.requestPart">Request a Part</a>
+                        <a href="#about" class="btn btn--secondary" data-i18n="hero.cta.learnMore">Learn More</a>
                     </div>    
                 </div>    
             </div>    
@@ -100,7 +114,7 @@
     
     <section id="partners" class="brands">
         <div class="container">
-            <h2 class="section-title">Brands We Carry</h2>
+            <h2 class="section-title" data-i18n="brands.title">Brands We Carry</h2>
             <div class="footer__brands">
                 <div class="footer__brands-grid">
                     <a href="#" class="footer__brand-item" title="Bosch">
@@ -122,40 +136,42 @@
                         <img src="The%20logos%20(brands)/zexel-logo.png" alt="Zexel" loading="lazy">
                     </a>
                 </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About General Diesel</h2>
+            <h2 class="section-title" data-i18n="about.title">About General Diesel</h2>
             <div class="about__content">
                 <div class="about__text">
-                    <p>General Diesel — Hany Soliman & Partners is an Egyptian company specializing in the import and distribution of genuine diesel injection pump spare parts. We supply workshops, fleet operators, and distributors across Egypt with original components from the world's most trusted manufacturers.</p>
-                    <p>Our product range covers everything needed to repair and maintain diesel fuel injection systems — plungers, delivery valves, injector nozzles, rotor heads, and complete pump assemblies. Every part we carry is sourced directly from authorized international manufacturers, ensuring quality you can rely on with every order.</p>
+                    <p data-i18n="about.paragraph1">General Diesel — Hany Soliman & Partners is an Egyptian company specializing in the import and distribution of genuine diesel injection pump spare parts. We supply workshops, fleet operators, and distributors across Egypt with original components from the world's most trusted manufacturers.</p>
+                    <p data-i18n="about.paragraph2">Our product range covers everything needed to repair and maintain diesel fuel injection systems — plungers, delivery valves, injector nozzles, rotor heads, and complete pump assemblies. Every part we carry is sourced directly from authorized international manufacturers, ensuring quality you can rely on with every order.</p>
                 </div>    
                 <div class="about__founder">
                     <div class="founder-card">
                         <img src="img/Hany%20soliman.png" alt="Hany Soliman" class="founder-card__image" loading="lazy" decoding="async">
                         <div class="founder-card__content">
-                            <h3 class="founder-card__name">Hany Soliman</h3>
-                            <p class="founder-card__title">Founder & Managing Partner</p>
-                            <p class="founder-card__bio">With over 25 years of hands-on experience in the diesel fuel injection parts trade, Hany Soliman built this company on one principle: give every technician and workshop the right part, at the right time, from a name they can trust.</p>
+                            <h3 class="founder-card__name" data-i18n="about.founder.name">Hany Soliman</h3>
+                            <p class="founder-card__title" data-i18n="about.founder.title">Founder & Managing Partner</p>
+                            <p class="founder-card__bio" data-i18n="about.founder.bio">With over 25 years of hands-on experience in the diesel fuel injection parts trade, Hany Soliman built this company on one principle: give every technician and workshop the right part, at the right time, from a name they can trust.</p>
                         </div>    
                     </div>    
                 </div>    
             </div>    
             <div class="about__highlights">
                 <div class="highlight-card">
-                    <h3>Genuine Parts Only</h3>
-                    <p>Every component is sourced from authorized international manufacturers — no imitations, no compromises</p>
+                    <h3 data-i18n="about.highlight1.title">Genuine Parts Only</h3>
+                    <p data-i18n="about.highlight1.text">Every component is sourced from authorized international manufacturers — no imitations, no compromises</p>
                 </div>    
                 <div class="highlight-card">
-                    <h3>Full Product Range</h3>
-                    <p>Plungers, valves, nozzles, rotor heads, and complete pumps — all in one place</p>
+                    <h3 data-i18n="about.highlight2.title">Full Product Range</h3>
+                    <p data-i18n="about.highlight2.text">Plungers, valves, nozzles, rotor heads, and complete pumps — all in one place</p>
                 </div>    
                 <div class="highlight-card">
-                    <h3>Serving Egypt's Workshops</h3>
-                    <p>Trusted supplier for diesel repair workshops and distributors across the country</p>
+                    <h3 data-i18n="about.highlight3.title">Serving Egypt's Workshops</h3>
+                    <p data-i18n="about.highlight3.text">Trusted supplier for diesel repair workshops and distributors across the country</p>
                 </div>    
             </div>    
         </div>    
@@ -164,37 +180,37 @@
     <!-- Features Section -->
     <section id="services" class="features">
         <div class="container">
-            <h2 class="section-title">What We Supply</h2>
+            <h2 class="section-title" data-i18n="features.title">What We Supply</h2>
             <div class="features__grid">
                 <article class="feature-card">
                     <div class="feature-card__icon">⛽</div>
-                    <h3 class="feature-card__title">Injection Pumps</h3>
-                    <p class="feature-card__text">Complete diesel injection pump assemblies for a wide range of engines — inline and distributor type</p>
+                    <h3 class="feature-card__title" data-i18n="features.pumps.title">Injection Pumps</h3>
+                    <p class="feature-card__text" data-i18n="features.pumps.text">Complete diesel injection pump assemblies for a wide range of engines — inline and distributor type</p>
                 </article>    
                 <article class="feature-card">
                     <div class="feature-card__icon">🔩</div>
-                    <h3 class="feature-card__title">Plungers & Barrels</h3>
-                    <p class="feature-card__text">Precision-matched plunger and barrel sets for all major pump models, ensuring consistent fuel delivery</p>
+                    <h3 class="feature-card__title" data-i18n="features.plungers.title">Plungers & Barrels</h3>
+                    <p class="feature-card__text" data-i18n="features.plungers.text">Precision-matched plunger and barrel sets for all major pump models, ensuring consistent fuel delivery</p>
                 </article>    
                 <article class="feature-card">
                     <div class="feature-card__icon">🔧</div>
-                    <h3 class="feature-card__title">Delivery Valves</h3>
-                    <p class="feature-card__text">Genuine delivery valves that maintain correct injection pressure and prevent fuel return</p>
+                    <h3 class="feature-card__title" data-i18n="features.valves.title">Delivery Valves</h3>
+                    <p class="feature-card__text" data-i18n="features.valves.text">Genuine delivery valves that maintain correct injection pressure and prevent fuel return</p>
                 </article>    
                 <article class="feature-card">
                     <div class="feature-card__icon">💧</div>
-                    <h3 class="feature-card__title">Injector Nozzles</h3>
-                    <p class="feature-card__text">Original nozzles for clean, efficient atomization — covering trucks, buses, agricultural, and marine engines</p>
+                    <h3 class="feature-card__title" data-i18n="features.nozzles.title">Injector Nozzles</h3>
+                    <p class="feature-card__text" data-i18n="features.nozzles.text">Original nozzles for clean, efficient atomization — covering trucks, buses, agricultural, and marine engines</p>
                 </article>    
                 <article class="feature-card">
                     <div class="feature-card__icon">⚙️</div>
-                    <h3 class="feature-card__title">Rotor Heads</h3>
-                    <p class="feature-card__text">Genuine rotor heads and distributing heads for VE and DPA type distributor pumps</p>
+                    <h3 class="feature-card__title" data-i18n="features.rotor.title">Rotor Heads</h3>
+                    <p class="feature-card__text" data-i18n="features.rotor.text">Genuine rotor heads and distributing heads for VE and DPA type distributor pumps</p>
                 </article>    
                 <article class="feature-card">
                     <div class="feature-card__icon">📋</div>
-                    <h3 class="feature-card__title">Parts Identification</h3>
-                    <p class="feature-card__text">Not sure about the part number? Our team helps identify the exact component for your pump model</p>
+                    <h3 class="feature-card__title" data-i18n="features.identification.title">Parts Identification</h3>
+                    <p class="feature-card__text" data-i18n="features.identification.text">Not sure about the part number? Our team helps identify the exact component for your pump model</p>
                 </article>    
             </div>    
         </div>    
@@ -203,30 +219,30 @@
     <!-- How It Works Section -->
     <section id="process" class="process">
         <div class="container">
-            <h2 class="section-title">How We Work</h2>
+            <h2 class="section-title" data-i18n="process.title">How We Work</h2>
             <div class="process__steps">
                 <div class="process__step">
                     <div class="process__number">01</div>
-                    <h3 class="process__title">Send Your Inquiry</h3>
-                    <p class="process__text">Contact us with your pump model, engine type, or part number — we'll take it from there</p>
+                    <h3 class="process__title" data-i18n="process.steps.step1.title">Send Your Inquiry</h3>
+                    <p class="process__text" data-i18n="process.steps.step1.text">Contact us with your pump model, engine type, or part number — we'll take it from there</p>
                 </div>    
                 <div class="process__divider"></div>
                 <div class="process__step">
                     <div class="process__number">02</div>
-                    <h3 class="process__title">Part Identification</h3>
-                    <p class="process__text">Our team matches your requirement to the exact genuine part from our catalog</p>
+                    <h3 class="process__title" data-i18n="process.steps.step2.title">Part Identification</h3>
+                    <p class="process__text" data-i18n="process.steps.step2.text">Our team matches your requirement to the exact genuine part from our catalog</p>
                 </div>    
                 <div class="process__divider"></div>
                 <div class="process__step">
                     <div class="process__number">03</div>
-                    <h3 class="process__title">Confirm & Supply</h3>
-                    <p class="process__text">We confirm availability, agree on delivery, and dispatch from our stocked inventory</p>
+                    <h3 class="process__title" data-i18n="process.steps.step3.title">Confirm & Supply</h3>
+                    <p class="process__text" data-i18n="process.steps.step3.text">We confirm availability, agree on delivery, and dispatch from our stocked inventory</p>
                 </div>    
                 <div class="process__divider"></div>
                 <div class="process__step">
                     <div class="process__number">04</div>
-                    <h3 class="process__title">After-Sales Support</h3>
-                    <p class="process__text">We stay available after every order for any technical questions or follow-up needs</p>
+                    <h3 class="process__title" data-i18n="process.steps.step4.title">After-Sales Support</h3>
+                    <p class="process__text" data-i18n="process.steps.step4.text">We stay available after every order for any technical questions or follow-up needs</p>
                 </div>    
             </div>    
         </div>    
@@ -235,23 +251,23 @@
     <!-- Statistics Section -->
     <section class="stats">
         <div class="container">
-            <h2 class="section-title">By The Numbers</h2>
+            <h2 class="section-title" data-i18n="stats.title">By The Numbers</h2>
             <div class="stats__grid">
                 <div class="stat-card">
                     <h3 class="stat-card__number">25+</h3>
-                    <p class="stat-card__label">Years in the Trade</p>
+                    <p class="stat-card__label" data-i18n="stats.years">Years in the Trade</p>
                 </div>    
                 <div class="stat-card">
                     <h3 class="stat-card__number">7</h3>
-                    <p class="stat-card__label">Trusted Global Brands</p>
+                    <p class="stat-card__label" data-i18n="stats.brands">Trusted Global Brands</p>
                 </div>    
                 <div class="stat-card">
                     <h3 class="stat-card__number">5</h3>
-                    <p class="stat-card__label">Core Product Lines</p>
+                    <p class="stat-card__label" data-i18n="stats.lines">Core Product Lines</p>
                 </div>    
                 <div class="stat-card">
                     <h3 class="stat-card__number">1000+</h3>
-                    <p class="stat-card__label">Part Numbers in Stock</p>
+                    <p class="stat-card__label" data-i18n="stats.partNumbers">Part Numbers in Stock</p>
                 </div>    
             </div>    
         </div>    
@@ -261,25 +277,25 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
+            <h2 class="section-title" data-i18n="testimonials.title">What Our Clients Say</h2>
             <div class="testimonials__grid">
                 <article class="testimonial-card">
                     <div class="testimonial-card__rating">★★★★★</div>
-                    <p class="testimonial-card__text">"We've been sourcing our injection pump parts from General Diesel for years. The parts are always genuine, and Hany's team knows exactly what fits — no guessing, no returns."</p>
+                    <p class="testimonial-card__text" data-i18n="testimonials.review1.text">"We've been sourcing our injection pump parts from General Diesel for years. The parts are always genuine, and Hany's team knows exactly what fits — no guessing, no returns."</p>
                     <div class="testimonial-card__author">
                         <div>
-                            <p class="testimonial-card__name">Ahmed Kamal</p>
-                            <p class="testimonial-card__title">Diesel Workshop Owner, Cairo</p>
+                            <p class="testimonial-card__name" data-i18n="testimonials.review1.name">Ahmed Kamal</p>
+                            <p class="testimonial-card__title" data-i18n="testimonials.review1.title">Diesel Workshop Owner, Cairo</p>
                         </div>
                     </div>
                 </article>
                 <article class="testimonial-card">
                     <div class="testimonial-card__rating">★★★★★</div>
-                    <p class="testimonial-card__text">"Reliable stock, fast delivery, and a team that actually understands the parts they sell. For Bosch and Delphi components especially, General Diesel is our first call every time."</p>
+                    <p class="testimonial-card__text" data-i18n="testimonials.review2.text">"Reliable stock, fast delivery, and a team that actually understands the parts they sell. For Bosch and Delphi components especially, General Diesel is our first call every time."</p>
                     <div class="testimonial-card__author">
                         <div>
-                            <p class="testimonial-card__name">Mohamed Farouk</p>
-                            <p class="testimonial-card__title">Fleet Maintenance Supervisor</p>
+                            <p class="testimonial-card__name" data-i18n="testimonials.review2.name">Mohamed Farouk</p>
+                            <p class="testimonial-card__title" data-i18n="testimonials.review2.title">Fleet Maintenance Supervisor</p>
                         </div>
                     </div>
                 </article>
@@ -290,96 +306,85 @@
     <!-- Final CTA Section -->
     <section id="contact" class="cta-final">
         <div class="container">
-            <h2 class="cta-final__title">Looking for a Specific Part?</h2>
-            <p class="cta-final__subtitle">Tell us your pump model or part number and we'll find exactly what you need — fast.</p>
-            <a href="mailto:contact@generaldiesel.com" class="btn btn--primary btn--large">Contact Our Team</a>
+            <h2 class="cta-final__title" data-i18n="cta.title">Looking for a Specific Part?</h2>
+            <p class="cta-final__subtitle" data-i18n="cta.subtitle">Tell us your pump model or part number and we'll find exactly what you need — fast.</p>
+            <a href="mailto:contact@generaldiesel.com" class="btn btn--primary btn--large" data-i18n="cta.button">Contact Our Team</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-
-        <div class="footer__main">
-            <div class="container">
-                <div class="footer__grid">
-                    <!-- Company Section -->
-                    <div class="footer__section footer__section--company">
+    <!-- <footer class="footer" role="contentinfo">
+        <div class="container footer__content">
+            <div class="footer__section footer__section--company">
                 <div class="navbar__logo">
                     <a href="#">
                         <div class="upper"><span class="arabic"><span class="redOne">جنرال</span> ديزل</div>
                         <div class="lower"> <span><span class="redOne">General</span> Diesel</span></div>
                     </a>
-                </div>    
-                        <p class="footer__description">Importers and distributors of genuine diesel injection pump spare parts. Trusted by workshops and fleet operators across Egypt for over 25 years.</p>
-                        <div class="footer__social">
-                            <a href="https://linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
-                            <a href="https://whatsapp.com" class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
-                            <a href="mailto:contact@generaldiesel.com" class="footer__social-link" aria-label="Email">@</a>
-                        </div>
-                    </div>
-
-                    <!-- Products Section -->
-                    <div class="footer__section">
-                        <h4 class="footer__section-title">Products</h4>
-                        <ul class="footer__list">
-                            <li><a href="#services">Injection Pumps</a></li>
-                            <li><a href="#services">Plungers & Barrels</a></li>
-                            <li><a href="#services">Delivery Valves</a></li>
-                            <li><a href="#services">Injector Nozzles</a></li>
-                            <li><a href="#services">Rotor Heads</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Quick Links Section -->
-                    <div class="footer__section">
-                        <h4 class="footer__section-title">Quick Links</h4>
-                        <ul class="footer__list">
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#partners">Our Brands</a></li>
-                            <li><a href="#process">How It Works</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Section -->
-                    <div class="footer__section">
-                        <h4 class="footer__section-title">Get in Touch</h4>
-                        <div class="footer__contact">
-                            <div class="footer__contact-item">
-                                <span class="footer__contact-label">Email</span>
-                                <a href="mailto:contact@generaldiesel.com">contact@generaldiesel.com</a>
-                            </div>
-                            <div class="footer__contact-item">
-                                <span class="footer__contact-label">WhatsApp</span>
-                                <a href="https://wa.me/20" target="_blank" rel="noopener noreferrer">+20 (XXX) XXX-XXXX</a>
-                            </div>
-                            <div class="footer__contact-item">
-                                <span class="footer__contact-label">Phone</span>
-                                <a href="tel:+20">+20 (XXX) XXX-XXXX</a>
-                            </div>
-                            <div class="footer__contact-item">
-                                <span class="footer__contact-label">Location</span>
-                                <a href="#">Cairo, Egypt</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
+                <p class="footer__description" data-i18n="footer.description">Importers and distributors of genuine diesel injection pump spare parts. Trusted by workshops and fleet operators across Egypt for over 25 years.</p>
+                <div class="footer__social">
+                    <a href="https://linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+                    <a href="https://whatsapp.com" class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
+                    <a href="mailto:contact@generaldiesel.com" class="footer__social-link" aria-label="Email">@</a>
                 </div>
             </div>
-        </div>
 
+            <div class="footer__section">
+                <h4 class="footer__section-title" data-i18n="footer.productsTitle">Products</h4>
+                <ul class="footer__list">
+                    <li><a href="#services" data-i18n="footer.products.injectionPumps">Injection Pumps</a></li>
+                    <li><a href="#services" data-i18n="footer.products.plungers">Plungers & Barrels</a></li>
+                    <li><a href="#services" data-i18n="footer.products.valves">Delivery Valves</a></li>
+                    <li><a href="#services" data-i18n="footer.products.nozzles">Injector Nozzles</a></li>
+                    <li><a href="#services" data-i18n="footer.products.rotorHeads">Rotor Heads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <h4 class="footer__section-title" data-i18n="footer.quickLinksTitle">Quick Links</h4>
+                <ul class="footer__list">
+                    <li><a href="#about" data-i18n="footer.quickLinks.about">About Us</a></li>
+                    <li><a href="#partners" data-i18n="footer.quickLinks.brands">Our Brands</a></li>
+                    <li><a href="#process" data-i18n="footer.quickLinks.process">How It Works</a></li>
+                    <li><a href="#testimonials" data-i18n="footer.quickLinks.testimonials">Testimonials</a></li>
+                    <li><a href="#contact" data-i18n="footer.quickLinks.contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <h4 class="footer__section-title" data-i18n="footer.contactTitle">Get in Touch</h4>
+                <div class="footer__contact">
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label" data-i18n="footer.contact.emailLabel">Email</span>
+                        <a href="mailto:contact@generaldiesel.com">contact@generaldiesel.com</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label" data-i18n="footer.contact.whatsappLabel">WhatsApp</span>
+                        <a href="https://wa.me/20" target="_blank" rel="noopener noreferrer">+20 (XXX) XXX-XXXX</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label" data-i18n="footer.contact.phoneLabel">Phone</span>
+                        <a href="tel:+20">+20 (XXX) XXX-XXXX</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label" data-i18n="footer.contact.locationLabel">Location</span>
+                        <a href="#">Cairo, Egypt</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <!-- Footer Bottom -->
         <div class="footer__bottom">
             <div class="container">
                 <div class="footer__bottom-content">
-                    <p class="footer__copyright">&copy; 2025 General Diesel — Hany Soliman & Partners. All rights reserved.</p>
+                    <p class="footer__copyright" data-i18n="footer.copyright">&copy; 2025 General Diesel — Hany Soliman & Partners. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

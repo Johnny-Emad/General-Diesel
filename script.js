@@ -10,6 +10,96 @@
     const mobileMenuToggle = doc.getElementById('mobileMenuToggle');
     const navbarMenu = doc.querySelector('.navbar__menu');
     const navbar = doc.querySelector('.navbar');
+    const languageSwitcher = doc.getElementById('languageSwitcher');
+    const translatableNodes = Array.from(doc.querySelectorAll('[data-i18n]'));
+    const pageTitleElement = doc.querySelector('title');
+    const metaDescription = doc.querySelector('meta[name="description"]');
+    const ogTitleMeta = doc.querySelector('meta[property="og:title"]');
+    const ogDescriptionMeta = doc.querySelector('meta[property="og:description"]');
+    const translations = window.GD_TRANSLATIONS || {};
+    const LANGUAGE_STORAGE_KEY = 'gd-preferred-language';
+    const DEFAULT_LANGUAGE = 'en';
+
+    function getStoredLanguage() {
+        const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        return savedLanguage && translations[savedLanguage] ? savedLanguage : DEFAULT_LANGUAGE;
+    }
+
+    function persistLanguage(language) {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    }
+
+    function setDocumentDirection(language) {
+        const direction = language === 'ar' ? 'rtl' : 'ltr';
+        doc.documentElement.lang = language;
+        doc.documentElement.dir = direction;
+        doc.body.classList.toggle('rtl', language === 'ar');
+    }
+
+    function translateKey(key, language) {
+        const dictionary = translations[language] || translations[DEFAULT_LANGUAGE] || {};
+        return key.split('.').reduce((current, part) => {
+            return current && current[part] !== undefined ? current[part] : undefined;
+        }, dictionary);
+    }
+
+    function applyTranslations(language) {
+        translatableNodes.forEach((node) => {
+            const key = node.dataset.i18n;
+            if (!key) return;
+
+            const value = translateKey(key, language);
+            if (value === undefined) return;
+
+            if (node.dataset.i18nHtml === 'true') {
+                node.innerHTML = value;
+            } else {
+                node.textContent = value;
+            }
+        });
+
+        if (languageSwitcher) {
+            languageSwitcher.value = language;
+            languageSwitcher.setAttribute('aria-label', translateKey('nav.languageLabel', language) || 'Select language');
+        }
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.setAttribute('aria-label', translateKey('nav.toggleMenu', language) || 'Toggle navigation menu');
+        }
+
+        if (pageTitleElement && translations[language] && translations[language].page && translations[language].page.title) {
+            pageTitleElement.textContent = translations[language].page.title;
+        }
+
+        if (metaDescription && translations[language] && translations[language].page) {
+            metaDescription.setAttribute('content', translations[language].page.description || '');
+        }
+
+        if (ogTitleMeta && translations[language] && translations[language].page) {
+            ogTitleMeta.setAttribute('content', translations[language].page.ogTitle || translations[language].page.title || '');
+        }
+
+        if (ogDescriptionMeta && translations[language] && translations[language].page) {
+            ogDescriptionMeta.setAttribute('content', translations[language].page.ogDescription || translations[language].page.description || '');
+        }
+    }
+
+    function handleLanguageChange(event) {
+        const selectedLanguage = event.target.value;
+        persistLanguage(selectedLanguage);
+        setDocumentDirection(selectedLanguage);
+        applyTranslations(selectedLanguage);
+    }
+
+    function initLanguage() {
+        const language = getStoredLanguage();
+        setDocumentDirection(language);
+        applyTranslations(language);
+
+        if (languageSwitcher) {
+            languageSwitcher.addEventListener('change', handleLanguageChange);
+        }
+    }
 
     function toggleMobileMenu() {
         if (!navbarMenu || !mobileMenuToggle) return;
@@ -71,6 +161,8 @@
     }
 
     doc.body.addEventListener('click', handleAnchorClick, false);
+
+    initLanguage();
 
     if (navbar) {
         let ticking = false;
