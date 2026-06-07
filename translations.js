@@ -141,7 +141,7 @@ window.GD_TRANSLATIONS = {
                 phoneLabel: 'Phone',
                 locationLabel: 'Location'
             },
-            copyright: '© 2025 General Diesel — Hany Soliman & Partners. All rights reserved.'
+            copyright: '© 2026 General Diesel — Hany Soliman & Partners. All rights reserved.'
         },
         page: {
             title: 'General Diesel — Hany Soliman & Partners | Diesel Pump Spare Parts',
@@ -292,7 +292,7 @@ window.GD_TRANSLATIONS = {
                 phoneLabel: 'الهاتف',
                 locationLabel: 'الموقع'
             },
-            copyright: '© 2025 جنرال ديزل — هاني سليمان وشركاه. جميع الحقوق محفوظة.'
+            copyright: '© 2026 جنرال ديزل — هاني سليمان وشركاه. جميع الحقوق محفوظة.'
         },
         page: {
             title: 'جنرال ديزل — هاني سليمان وشركاه | قطع غيار مضخات الديزل',
