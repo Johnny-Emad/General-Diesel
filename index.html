@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Tajawal:wght@400;500;600;700&family=Noto+Serif:wght@700&family=Cascadia+Mono:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Tajawal:wght@400;500;600;700&family=Noto+Serif:wght@700&family=Cascadia+Mono:wght@700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Tajawal:wght@400;500;600;700&family=Noto+Serif:wght@700&family=Cascadia+Mono:wght@700&display=swap">
+    </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="General Diesel — Hany Soliman & Partners. Importers and distributors of genuine diesel injection pump spare parts. Bosch, Delphi, Denso, Zexel, and more.">
@@ -20,23 +21,8 @@
     <link rel="canonical" href="https://www.generaldiesel.com/">
     <link rel="icon" type="image/png" href="logo of our company.png">
     <title>General Diesel — Hany Soliman & Partners | Diesel Pump Spare Parts</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
-    </noscript>
-    <link rel="preload" as="image" href="img/Hero%20BG.jpg">
+    <link rel="preload" as="image" href="img/hero-bg-1000.jpg">
     <link rel="preload" as="image" href="logo of our company.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap">
-    </noscript>
     <style>
         :root { color-scheme: dark; }
         *, *::before, *::after { box-sizing: border-box; }
@@ -47,7 +33,7 @@
         .navbar__content { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
         .logo-img { display: block; height: 50px; width: auto; }
         .hero { position: relative; display: flex; align-items: center; justify-content: center; min-height: 600px; height: min(100vh, 720px); overflow: hidden; }
-        .hero__background { position: absolute; inset: 0; background-image: url('img/Hero%20BG.jpg'); background-size: cover; background-position: center; z-index: 1; filter: brightness(0.75); }
+        .hero__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 1; filter: brightness(0.75); }
         .hero__overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(27, 45, 74, 0.65), rgba(216, 78, 49, 0.55)); z-index: 2; }
         .hero__content { position: relative; z-index: 3; text-align: center; width: 100%; }
         .hero__title { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 16px; font-weight: 700; letter-spacing: -1px; color: #f5f7fb; line-height: 1.2; }
@@ -96,7 +82,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero__background" style="background-image: url('img/Hero%20BG.jpg');"></div>
+        <img class="hero__image" src="img/hero-bg-1000.jpg" srcset="img/hero-bg-1000.jpg 1000w, img/hero-bg-1600.jpg 1600w" sizes="100vw" loading="eager" decoding="async" fetchpriority="high" alt="" aria-hidden="true">
         <div class="hero__overlay"></div>
         <div class="hero__content">
             <div class="container">
@@ -313,7 +299,7 @@
     </section>
 
     <!-- Footer -->
-    <!-- <footer class="footer" role="contentinfo">
+    <footer class="footer" role="contentinfo">
         <div class="container footer__content">
             <div class="footer__section footer__section--company">
                 <div class="navbar__logo">
@@ -373,7 +359,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- Footer Bottom -->
         <div class="footer__bottom">
             <div class="container">
@@ -384,7 +370,7 @@
         </div>
     </footer>
 
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script src="translations.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

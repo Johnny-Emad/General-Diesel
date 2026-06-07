@@ -182,25 +182,6 @@
         }, { passive: true });
     }
 
-    function logPerformanceMetrics() {
-        if (!window.performance || !window.performance.getEntriesByType) return;
-        const [nav] = window.performance.getEntriesByType('navigation');
-        if (!nav) return;
-
-        window.addEventListener('load', () => {
-            const pageLoadTime = Math.round(nav.loadEventEnd - nav.startTime);
-            const connectTime = Math.round(nav.responseEnd - nav.requestStart);
-            const renderTime = Math.round(nav.domComplete - nav.domLoading);
-
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                console.log('=== Performance Metrics ===');
-                console.log('Page Load Time:', pageLoadTime + 'ms');
-                console.log('Connect Time:', connectTime + 'ms');
-                console.log('Render Time:', renderTime + 'ms');
-            }
-        });
-    }
-
-    logPerformanceMetrics();
+    // Performance logging removed for production optimization.
 
 
