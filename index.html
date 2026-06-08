@@ -66,10 +66,19 @@
                 </ul>
                 <div class="navbar__actions">
                     <label for="languageSwitcher" class="sr-only" data-i18n="nav.languageLabel">Language</label>
-                    <select id="languageSwitcher" class="language-switcher" aria-label="Select language">
+                    <!-- Keep the original select in the DOM for existing translation logic, but visually hide it.
+                         The visible language toggle button below drives the same behaviour by updating the select value
+                         and dispatching a change event (script.js listens for the select change and performs translations).
+                    -->
+                    <select id="languageSwitcher" class="language-switcher sr-only" aria-label="Select language">
                         <option value="en">English</option>
                         <option value="ar">العربية</option>
                     </select>
+
+                    <!-- New single-button UI for toggling languages. Its text is updated dynamically to show
+                         the language the user can switch to (Arabic when current is English, and vice-versa).
+                    -->
+                    <button id="languageToggleButton" class="lang-toggle-btn" aria-live="polite" aria-pressed="false">عربي</button>
                 </div>
                 <button class="navbar__toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <span></span>
@@ -298,79 +307,127 @@
         </div>
     </section>
 
+    <!-- Contact & Location Section -->
+    <section class="contact-location">
+        <div class="container">
+            <div class="contact-location__grid">
+                <div class="contact-location__card">
+                    <div class="contact-location__logo-wrapper">
+                        <img src="logo of our company.png" alt="General Diesel logo" class="contact-location__logo" loading="eager" decoding="async">
+                    </div>
+                    <h2 class="section-title contact-location__title">Contact Us</h2>
+                    <ul class="contact-location__list">
+                        <li class="contact-location__item">
+                            <span class="contact-location__icon" aria-hidden="true">📧</span>
+                            <div class="contact-location__content">
+                                <span class="contact-location__label">Email</span>
+                                <a class="contact-location__link" href="mailto:contact@generaldiesel.com">contact@generaldiesel.com</a>
+                            </div>
+                        </li>
+                        <li class="contact-location__item">
+                            <span class="contact-location__icon" aria-hidden="true">📞</span>
+                            <div class="contact-location__content">
+                                <span class="contact-location__label">Phone</span>
+                                <a class="contact-location__link" href="tel:+201234567890">+20 123 456 7890</a>
+                            </div>
+                        </li>
+                        <li class="contact-location__item">
+                            <span class="contact-location__icon" aria-hidden="true">📍</span>
+                            <div class="contact-location__content">
+                                <span class="contact-location__label">Address</span>
+                                <p class="contact-location__text">10 October City, Cairo, Egypt</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-location__map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.375329793058!2d31.242861000000005!3d30.054774200000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584095ab22a359%3A0x79f6e99fe23f90f2!2sGeneral%20Diesel!5e0!3m2!1sen!2seg!4v1780958948340!5m2!1sen!2seg"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius:8px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
-        <!-- <div class="container footer__content">
-            <div class="footer__section footer__section--company">
-                <div class="navbar__logo">
-                    <a href="#">
-                        <div class="upper"><span class="arabic"><span class="redOne">جنرال</span> ديزل</div>
-                        <div class="lower"> <span><span class="redOne">General</span> Diesel</span></div>
-                    </a>
-                </div>
-                <p class="footer__description" data-i18n="footer.description">Importers and distributors of genuine diesel injection pump spare parts. Trusted by workshops and fleet operators across Egypt for over 25 years.</p>
-                <div class="footer__social">
-                    <a href="https://linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
-                    <a href="https://whatsapp.com" class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
-                    <a href="mailto:contact@generaldiesel.com" class="footer__social-link" aria-label="Email">@</a>
-                </div>
-            </div>
-
-            <div class="footer__section">
-                <h4 class="footer__section-title" data-i18n="footer.productsTitle">Products</h4>
-                <ul class="footer__list">
-                    <li><a href="#services" data-i18n="footer.products.injectionPumps">Injection Pumps</a></li>
-                    <li><a href="#services" data-i18n="footer.products.plungers">Plungers & Barrels</a></li>
-                    <li><a href="#services" data-i18n="footer.products.valves">Delivery Valves</a></li>
-                    <li><a href="#services" data-i18n="footer.products.nozzles">Injector Nozzles</a></li>
-                    <li><a href="#services" data-i18n="footer.products.rotorHeads">Rotor Heads</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__section">
-                <h4 class="footer__section-title" data-i18n="footer.quickLinksTitle">Quick Links</h4>
-                <ul class="footer__list">
-                    <li><a href="#about" data-i18n="footer.quickLinks.about">About Us</a></li>
-                    <li><a href="#partners" data-i18n="footer.quickLinks.brands">Our Brands</a></li>
-                    <li><a href="#process" data-i18n="footer.quickLinks.process">How It Works</a></li>
-                    <li><a href="#testimonials" data-i18n="footer.quickLinks.testimonials">Testimonials</a></li>
-                    <li><a href="#contact" data-i18n="footer.quickLinks.contact">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__section">
-                <h4 class="footer__section-title" data-i18n="footer.contactTitle">Get in Touch</h4>
-                <div class="footer__contact">
-                    <div class="footer__contact-item">
-                        <span class="footer__contact-label" data-i18n="footer.contact.emailLabel">Email</span>
-                        <a href="mailto:contact@generaldiesel.com">contact@generaldiesel.com</a>
-                    </div>
-                    <div class="footer__contact-item">
-                        <span class="footer__contact-label" data-i18n="footer.contact.whatsappLabel">WhatsApp</span>
-                        <a href="https://wa.me/20" target="_blank" rel="noopener noreferrer">+20 (XXX) XXX-XXXX</a>
-                    </div>
-                    <div class="footer__contact-item">
-                        <span class="footer__contact-label" data-i18n="footer.contact.phoneLabel">Phone</span>
-                        <a href="tel:+20">+20 (XXX) XXX-XXXX</a>
-                    </div>
-                    <div class="footer__contact-item">
-                        <span class="footer__contact-label" data-i18n="footer.contact.locationLabel">Location</span>
-                        <a href="#">Cairo, Egypt</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Footer Bottom -->
         <div class="footer__bottom">
             <div class="container">
                 <div class="footer__bottom-content">
                     <p class="footer__copyright" data-i18n="footer.copyright">&copy; 2026 General Diesel — Hany Soliman & Partners. All rights reserved.</p>
+                    <p class="footer__attribution">Developed by <a href="https://johnny-emad.github.io/Johnny/" target="_blank" rel="noopener noreferrer">Johnny</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <a href="https://wa.me/201234567890" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
+        <span class="sr-only">Chat with us on WhatsApp</span>
+        <svg class="whatsapp-float__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.1-.471-.149-.67.15-.198.297-.767.967-.941 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.607.134-.133.298-.347.447-.521.149-.174.198-.298.298-.497.1-.198.05-.372-.025-.521-.075-.148-.67-1.612-.916-2.21-.242-.579-.487-.5-.67-.51l-.571-.01c-.198 0-.52.075-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.693.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.075-.124-.273-.198-.57-.347zM12 2C6.478 2 2 6.477 2 12.005c0 2.115.66 4.086 1.797 5.738L2 22l4.46-1.184A9.95 9.95 0 0 0 12 22c5.526 0 10-4.478 10-9.995C22 6.477 17.523 2 12 2z"/>
+        </svg>
+    </a>
+
     <script src="translations.js" defer></script>
     <script src="script.js" defer></script>
+    <script>
+        (function () {
+            var select = document.getElementById('languageSwitcher');
+            var btn = document.getElementById('languageToggleButton');
+
+            if (!btn) return;
+
+            function updateButtonText() {
+                var lang = (select && select.value) ? select.value : (localStorage.getItem('gd-preferred-language') || 'en');
+                if (lang === 'ar') {
+                    btn.textContent = 'English';
+                    btn.setAttribute('aria-label', 'Switch to English');
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.textContent = 'عربي';
+                    btn.setAttribute('aria-label', 'التبديل إلى العربية');
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            }
+
+            // When the select (the source of truth) changes, update the button text
+            if (select) {
+                select.addEventListener('change', updateButtonText);
+            }
+
+            // Toggle language when button clicked by updating the select and dispatching change
+            btn.addEventListener('click', function () {
+                var current = (select && select.value) ? select.value : (localStorage.getItem('gd-preferred-language') || 'en');
+                var next = current === 'ar' ? 'en' : 'ar';
+                if (select) {
+                    select.value = next;
+                    // Dispatch a change event so existing listeners handle the language switch
+                    var ev = new Event('change', { bubbles: true });
+                    select.dispatchEvent(ev);
+                } else {
+                    // Fallback: persist directly if select isn't available (shouldn't happen)
+                    localStorage.setItem('gd-preferred-language', next);
+                    // Trigger a full reload to pick up translations if necessary
+                    window.location.reload();
+                }
+                updateButtonText();
+            });
+
+            // Initialize button text after DOM is ready and existing script has run
+            document.addEventListener('DOMContentLoaded', function () {
+                // Small timeout to ensure script.js applyTranslations ran when using defer
+                setTimeout(updateButtonText, 20);
+            });
+
+            // Also run immediately in case DOM already parsed
+            updateButtonText();
+        })();
+    </script>
 </body>
 </html>
