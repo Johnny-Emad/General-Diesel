@@ -115,10 +115,12 @@ window.GD_TRANSLATIONS = {
       },
     },
     cta: {
+      badge: "⚡ Fast Response — We Reply Within Minutes",
       title: "Looking for a Specific Part?",
       subtitle:
         "Tell us your pump model or part number and we'll find exactly what you need — fast.",
-      button: "Contact Our Team",
+      button: "📞 Contact Our Team Now",
+      note: "Free consultation — No obligation",
     },
     contact: {
       title: "Contact Us",
@@ -288,9 +290,11 @@ window.GD_TRANSLATIONS = {
       },
     },
     cta: {
+      badge: "⚡ رد سريع — نرد عليك في دقائق",
       title: "هل تبحث عن قطعة محددة؟",
       subtitle: "أخبرنا بموديل مضختك أو رقم القطعة وسنجد ما تحتاجه بسرعة.",
-      button: "تواصل مع فريقنا",
+      button: "📞 تواصل مع فريقنا الآن",
+      note: "استشارة مجانية — بدون أي التزام",
     },
     contact: {
       title: "تواصل معنا",
